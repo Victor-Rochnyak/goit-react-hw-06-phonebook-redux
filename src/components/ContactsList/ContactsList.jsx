@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 // Стилі
 import {List,Item,Button} from './ContactsList.styled'
 
-const ContactsList = ({ contacts, onDeleteContact }) => (
+const ContactsList = ({  onDeleteContact }) => (
+  //contacts,
+  
   <List>
     {contacts.map(({ id, name, number }) => (
       <Item key={id}>

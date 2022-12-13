@@ -9,19 +9,20 @@ const contactSlice = createSlice({
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter:'',
+    filter: '',
   },
-  reducers:{
-    addContacts(state,action){
-        state.contactItems.push(action.payload)
-        console.log(state)
-        console.log(action)
+  reducers: {
+    addContacts(state, action) {
+      state.contactItems.push(action.payload);
+      console.log(state);
+      console.log(action);
     },
-    deleteContacts(state,action){},
-    filterContacts(state,action){},
-  }
+    deleteContacts(state, action) {},
+    filterContacts(state, action) {},
+  },
 });
 
-export const{addContacts,deleteContacts,filterContacts}=contactSlice.actions;
+export const { addContacts, deleteContacts, filterContacts } =
+  contactSlice.actions;
 
-export default contactSlice.reducer;
+export const contactsReduser = contactSlice.reducer;
