@@ -17,10 +17,20 @@ const contactSlice = createSlice({
       console.log(state);
       console.log(action);
     },
-    deleteContacts(state, action) {},
-    filterContacts(state, action) {},
+
+    deleteContacts(state, action) {
+      state.contactItems = state.contactItems.filter(
+        contact => contact.id !== action.payload
+      );
+    },
+    filterContacts(state, action) {
+      state.filter = action.payload;
+    },
   },
 });
+
+export const getContacts = state => state.contacts.contactItems;
+export const getFilter = state => state.contacts.filter;
 
 export const { addContacts, deleteContacts, filterContacts } =
   contactSlice.actions;

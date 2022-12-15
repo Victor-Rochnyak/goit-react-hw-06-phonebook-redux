@@ -4,15 +4,20 @@ import PropTypes from 'prop-types';
 // Стилі
 import { Form, Label, Input, Button } from './FormBok.styled';
 
-export default function FormBook({ onSubmit }) {
+import { useDispatch, useSelector } from 'react-redux';
+import { addContacts, getContacts } from 'redux/contactSlise';
+
+export default function FormBook() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-   // Генератор ID
-   const nameInputId = nanoid();
-   const numberInputId = nanoid();
+  // Генератор ID
+  const nameInputId = nanoid();
+  const numberInputId = nanoid();
 
-   
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -29,20 +34,27 @@ export default function FormBook({ onSubmit }) {
         return;
     }
   };
-  // Сабміт на кнопку та ресет
+ 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(name, number);
-
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    const checkContact = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+    checkContact
+      ? alert(`${name} is already in contact`)
+      : dispatch(addContacts(newContact));
     reset();
   };
-  
+
   const reset = () => {
     setName('');
     setNumber('');
   };
-
- 
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -75,7 +87,6 @@ export default function FormBook({ onSubmit }) {
     </Form>
   );
 }
-
 
 FormBook.prototypes = {
   name: PropTypes.string.isRequired,
