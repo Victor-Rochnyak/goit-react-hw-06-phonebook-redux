@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 // Стилі
 import {List,Item,Button} from './ContactsList.styled'
 
-const ContactsList = ({  onDeleteContact }) => (
-  //contacts,
+const ContactsList = ({ contacts, onDeleteContact }) => (
+  
   
   <List>
     {contacts.map(({ id, name, number }) => (
