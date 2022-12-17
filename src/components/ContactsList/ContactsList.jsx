@@ -1,7 +1,8 @@
 import React from 'react';
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
 import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/contactSlise';
+import { getContacts } from 'redux/contactSlise';
+import { getFilter } from 'redux/filterSlise';
 // Стилі
 import { List} from './ContactsList.styled';
 
@@ -11,7 +12,6 @@ const ContactsList = () => {
   const filter = useSelector(getFilter);
 
   const getFindContacts = () => {
-    
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
