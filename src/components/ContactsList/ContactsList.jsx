@@ -1,13 +1,12 @@
 import React from 'react';
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { getContacts } from 'redux/contactSlise';
 import { getFilter } from 'redux/filterSlise';
 // Стилі
 import { List} from './ContactsList.styled';
 
 const ContactsList = () => {
-  // const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
