@@ -1,6 +1,6 @@
 import React from 'react';
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/contactSlise';
 import { getFilter } from 'redux/filterSlise';
 // Стилі
