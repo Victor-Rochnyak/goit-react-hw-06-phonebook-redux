@@ -8,12 +8,15 @@ const filterSlice = createSlice({
   reducers: {
     filterContact(state, action) {
       state.filter = action.payload;
+   
     },
   },
 });
 
 // export const getContacts = state => state.contacts.contactItems;
-export const getFilter = state => state.contacts.filter;
+export const getFilter = state => state.filter.filter;
+
+
 
 export const { filterContact } = filterSlice.actions;
 

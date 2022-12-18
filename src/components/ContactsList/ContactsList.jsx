@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/contactSlise';
 import { getFilter } from 'redux/filterSlise';
 // Стилі
-import { List} from './ContactsList.styled';
+import { List } from './ContactsList.styled';
 
 const ContactsList = () => {
   const contacts = useSelector(getContacts);
@@ -18,6 +18,7 @@ const ContactsList = () => {
   };
 
   const getFindContact = getFindContacts();
+
   return (
     <List>
       {getFindContact.map(contact => (
@@ -28,5 +29,3 @@ const ContactsList = () => {
 };
 
 export default ContactsList;
-
-
